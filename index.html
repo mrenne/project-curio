@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Phaedrus | Digital-Physical Gaming</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:italic,wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beige: #F5F5F1;
+            --light-green: #D1E8D5;
+            --deep-green: #2D4F35;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--beige);
+            color: #333;
+        }
+        .serif {
+            font-family: 'Libre+Baskerville', serif;
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .nav-link:hover {
+            color: var(--deep-green);
+            border-bottom: 2px solid var(--deep-green);
+        }
+        .active-section {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        .hidden-section {
+            display: none;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .drawing-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.2s;
+        }
+        .drawing-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="text-xl font-bold tracking-tighter text-emerald-800 uppercase">Phaedrus</div>
+            <div class="hidden md:flex space-x-8 font-medium text-gray-600">
+                <span onclick="showSection('home')" class="nav-link">Home</span>
+                <span onclick="showSection('play')" class="nav-link">Play Digital/Physical Games</span>
+                <span onclick="showSection('make')" class="nav-link">Make Digital/Physical Games</span>
+                <span onclick="showSection('why')" class="nav-link">Why</span>
+            </div>
+            <!-- Mobile Menu Toggle (Simplified) -->
+            <div class="md:hidden text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-5xl mx-auto px-6 py-12">
+        
+        <!-- Header Section -->
+        <header class="text-center mb-16">
+            <h1 class="text-5xl md:text-7xl font-bold text-emerald-900 mb-6 tracking-tight">Project Phaedrus</h1>
+            <div class="max-w-2xl mx-auto mb-8">
+                <blockquote class="serif italic text-xl md:text-2xl text-emerald-800 border-l-4 border-emerald-200 pl-6 py-2 leading-relaxed">
+                    "...will not practice using their memory because they will put their trust in writing."
+                </blockquote>
+                <p class="text-sm text-gray-500 mt-2">— Plato, <i>Phaedrus</i></p>
+            </div>
+            <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100">
+                A hub for the intersection of the tactile and the virtual. Project Phaedrus bridges the gap between traditional physical objects—beginning with the humble paperback book—and the emergent intelligence of AI chatbots.
+            </p>
+        </header>
+
+        <!-- Dynamic Sections -->
+        
+        <!-- HOME SECTION -->
+        <section id="home" class="active-section space-y-12">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                    <h2 class="text-3xl font-bold text-gray-800">The First Experiment</h2>
+                    <p class="text-gray-600">Our premiere game transforms your bookshelf into a repository of living characters. By pairing a physical paperback with a custom chatbot interface, readers no longer just observe the text; they converse with it, probe its memories, and challenge its logic.</p>
+                    <button onclick="showSection('play')" class="bg-emerald-700 text-white px-8 py-3 rounded-full hover:bg-emerald-800 transition shadow-lg">Start Playing</button>
+                </div>
+                <!-- Drawing Image: Book and Chatbot -->
+                <div class="drawing-card bg-emerald-50 flex items-center justify-center">
+                    <svg viewBox="0 0 200 200" class="w-full max-w-[300px]" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="50" y="40" width="80" height="110" rx="4" fill="white" stroke="#2D4F35" stroke-width="2"/>
+                        <line x1="60" y1="60" x2="120" y2="60" stroke="#E2E8F0" stroke-width="2"/>
+                        <line x1="60" y1="80" x2="120" y2="80" stroke="#E2E8F0" stroke-width="2"/>
+                        <line x1="60" y1="100" x2="100" y2="100" stroke="#E2E8F0" stroke-width="2"/>
+                        <path d="M140 120 Q 180 120 180 100 Q 180 80 140 80 Q 100 80 100 100 Q 100 120 120 120 L 115 135 L 140 120" fill="#D1E8D5" stroke="#2D4F35" stroke-width="2"/>
+                        <circle cx="130" cy="100" r="2" fill="#2D4F35"/>
+                        <circle cx="140" cy="100" r="2" fill="#2D4F35"/>
+                        <circle cx="150" cy="100" r="2" fill="#2D4F35"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h3 class="font-bold text-emerald-800 mb-2">Paperback Integration</h3>
+                    <p class="text-sm text-gray-600">Utilizing ISBN scanning and OCR to connect your unique physical copy to our digital game engine.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h3 class="font-bold text-emerald-800 mb-2">Large Language Models</h3>
+                    <p class="text-sm text-gray-600">Bespoke AI personalities trained on literary analysis to provide deep, meaningful interactions.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h3 class="font-bold text-emerald-800 mb-2">Physical Checkpoints</h3>
+                    <p class="text-sm text-gray-600">The game progresses only when you confirm specific physical interactions with your book.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PLAY SECTION -->
+        <section id="play" class="hidden-section">
+            <h2 class="text-3xl font-bold mb-8">Available Games</h2>
+            <div class="bg-white rounded-2xl p-8 border border-emerald-100 shadow-md flex flex-col md:flex-row gap-8 items-center">
+                <div class="w-full md:w-1/3 flex justify-center">
+                     <!-- Drawing Image: Hand holding book -->
+                    <svg viewBox="0 0 200 200" class="w-48 h-48" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M60 160 Q 40 140 40 100 Q 40 60 60 40 L 140 40 Q 160 60 160 100 Q 160 140 140 160 Z" fill="#D1E8D5" opacity="0.3"/>
+                        <rect x="70" y="60" width="60" height="90" fill="white" stroke="#2D4F35" stroke-width="2" transform="rotate(-10 100 105)"/>
+                        <path d="M120 150 C 130 140 150 140 160 160" stroke="#2D4F35" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        <path d="M125 145 C 135 135 155 135 165 155" stroke="#2D4F35" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="flex-grow space-y-4">
+                    <div class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Game 01</div>
+                    <h3 class="text-2xl font-bold">The Silent Interrogator</h3>
+                    <p class="text-gray-600">Requirement: A physical copy of any Penguin Classics paperback.</p>
+                    <p class="text-gray-600">The character in your book has committed a crime not mentioned in the text. You must find evidence on the pages to confront them in the chat.</p>
+                    <button class="bg-gray-200 text-gray-500 cursor-not-allowed px-6 py-2 rounded-lg">Coming Soon</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- MAKE SECTION -->
+        <section id="make" class="hidden-section space-y-8">
+            <h2 class="text-3xl font-bold">Creation Toolkit</h2>
+            <p class="text-lg text-gray-600">We are building an open-source framework for developers to create their own "Phaedrus-style" games. Our SDK handles:</p>
+            <ul class="space-y-4 max-w-2xl">
+                <li class="flex items-start gap-3">
+                    <div class="bg-emerald-100 p-2 rounded-lg mt-1">✓</div>
+                    <div><strong>Page Verification:</strong> Logic to confirm a player is looking at a specific physical page.</div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <div class="bg-emerald-100 p-2 rounded-lg mt-1">✓</div>
+                    <div><strong>Context Injection:</strong> Automatically feeding book passages into AI prompts for consistency.</div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <div class="bg-emerald-100 p-2 rounded-lg mt-1">✓</div>
+                    <div><strong>Tactile Triggers:</strong> Using phone sensors (camera, accelerometer) to verify physical game actions.</div>
+                </li>
+            </ul>
+             <!-- Drawing: Quill and Phone -->
+             <div class="flex justify-center py-8">
+                <svg viewBox="0 0 300 150" class="w-full max-w-[400px]" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="180" y="30" width="50" height="90" rx="8" fill="white" stroke="#2D4F35" stroke-width="2"/>
+                    <circle cx="205" cy="110" r="4" fill="#2D4F35"/>
+                    <path d="M50 120 L 70 40 Q 80 20 100 40 L 90 120" fill="none" stroke="#2D4F35" stroke-width="2"/>
+                    <path d="M70 40 Q 90 60 110 40" fill="none" stroke="#2D4F35" stroke-width="2"/>
+                    <path d="M100 100 C 130 100 150 70 180 70" stroke="#2D4F35" stroke-width="1" stroke-dasharray="4"/>
+                </svg>
+             </div>
+        </section>
+
+        <!-- WHY SECTION -->
+        <section id="why" class="hidden-section">
+            <div class="max-w-3xl mx-auto space-y-8 serif">
+                <h2 class="text-4xl font-bold text-emerald-900 italic">The Philosophy of Phaedrus</h2>
+                <div class="text-lg leading-relaxed space-y-6 text-gray-700">
+                    <p>In Plato's dialogue, Socrates recounts a myth about the invention of writing. King Thamus warns that writing will lead to a loss of true wisdom, as people will have "the reputation for it without the reality." They will consume information without the internal labor of memory and thought.</p>
+                    <p>Socrates' worry was that books are static. You cannot ask a book a question. If you ask a book to explain its meaning, it simply says the same thing over and over. It cannot defend itself.</p>
+                    <p><strong>Project Phaedrus attempts to answer this ancient critique.</strong></p>
+                    <p>By layering intelligent agents over static physical text, we create a "Living Book." We use the technology Socrates might have feared (digital intelligence) to force a return to the thing he loved: the deep, dialectic interrogation of ideas—centered around the physical objects that ground our history.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 py-12 mt-12">
+        <div class="max-w-6xl mx-auto px-6 text-center text-gray-400 text-sm">
+            <p>&copy; 2025 Project Phaedrus. Built for the future of memory.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = ['home', 'play', 'make', 'why'];
+            sections.forEach(id => {
+                document.getElementById(id).classList.add('hidden-section');
+                document.getElementById(id).classList.remove('active-section');
+            });
+
+            // Show selected section
+            const target = document.getElementById(sectionId);
+            target.classList.remove('hidden-section');
+            target.classList.add('active-section');
+
+            // Update navigation styles if needed (optional)
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('home');
+        });
+    </script>
+</body>
+</html>
